@@ -12,12 +12,11 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
-# Define the DAG
 with DAG(
     "example_dag2",
     default_args=default_args,
     description="A simple test DAG",
-    schedule_interval=timedelta(days=1),  # run once per day
+    schedule=timedelta(days=1),  # ✅ Airflow 3
     start_date=datetime(2025, 1, 1),
     catchup=False,
     tags=["example"],
